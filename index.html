@@ -115,8 +115,8 @@
 <div class="section level2">
 <h2 id="vignettes-and-package-license">Vignettes and package license<a class="anchor" aria-label="anchor" href="#vignettes-and-package-license"></a>
 </h2>
-<p>The first package vignette is a tutorial on making use of the various morphisms with the familiar list type.</p>
-<p>The second package vignette explores implementation of flat-map for the <code>data.tree</code> package’s <code>Node</code> type, implementation of a “base” functor for this type. Because of that package’s unpredictable behaviour, the vignette then explores implementation of a basic <code>Tree</code> type.</p>
+<p>The first package vignette is a tutorial on making use of the various morphisms with the familiar list type. This is primarily a demonstration of each function rather than an explanation of how to implement a “base” functor for a given type.</p>
+<p>The second package vignette explores implementation of flat-map for the <code>data.tree</code> package’s <code>Node</code> type, implementation of a “base” functor for this type. Because of that package’s unpredictable behaviour, the vignette then explores implementation of a basic <code>Tree</code> type. Finally, it explores implementation of a monad instance for the basic <code>Tree</code> type, and testing it against the monad laws.</p>
 <p>The third package vignette explores using fixed-points instead of <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code>, and demonstrates this using Peano numbers. When I was building/testing the library, I used fixed-points instead of the <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code> functions, but I later replaced that code with those functions, and also adapted the “base” functor of a list to demonstrate the package, so this library is to an extent adapted from the Haskell <code>recursion-schemes</code> package. I’ve thus applied the same license as that package (BSD 2-Clause) with a note of attribution.</p>
 </div>
 </div>
