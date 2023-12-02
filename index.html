@@ -79,7 +79,7 @@
 </h2>
 <p><a href="articles/list-morphisms.html">The first package vignette</a> is a tutorial on making use of the various morphisms with the familiar list type. This is primarily a demonstration of each function rather than an explanation of how to implement a “base” functor for a given type.</p>
 <p><a href="articles/tree-morphisms.html">The second package vignette</a> explores implementation of flat-map for the <code>data.tree</code> package’s <code>Node</code> type, implementation of a “base” functor for this type. Because of that package’s unpredictable behaviour, the vignette then explores implementation of a basic <code>Tree</code> type. Finally, it explores implementation of a monad instance for the basic <code>Tree</code> type, and testing it against the monad laws.</p>
-<p><a href="fixed-point-programming.html">The third package vignette</a> explores using fixed-points instead of <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code>, and demonstrates this using Peano numbers. When I was building/testing the library, I used fixed-points instead of the <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code> functions, but I later replaced that code with those functions, and also adapted the “base” functor of a list to demonstrate the package, so this library is to an extent adapted from the Haskell <code>recursion-schemes</code> package. It isn’t clear to me what the implications are in terms of software licensing when adapting code/ideas (other libraries which implement recursion-schemes such as SCALA’s <code>matryoshka</code> don’t share the same license as <code>recursion-schemes</code>), so I’ve applied the same license (BSD 2-Clause) with a note of attribution. My own code is licensed under BSD 3-Clause.</p>
+<p><a href="articles/fixed-point-programming.html">The third package vignette</a> explores using fixed-points instead of <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code>, and demonstrates this using Peano numbers. When I was building/testing the library, I used fixed-points instead of the <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code> functions, but I later replaced that code with those functions, and also adapted the “base” functor of a list to demonstrate the package, so this library is to an extent adapted from the Haskell <code>recursion-schemes</code> package. It isn’t clear to me what the implications are in terms of software licensing when adapting code/ideas (other libraries which implement recursion-schemes such as SCALA’s <code>matryoshka</code> don’t share the same license as <code>recursion-schemes</code>), so I’ve applied the same license (BSD 2-Clause) with a note of attribution. My own code is licensed under BSD 2-Clause.</p>
 </div>
 <div class="section level2">
 <h2 id="recursion-schemes">Recursion schemes<a class="anchor" aria-label="anchor" href="#recursion-schemes"></a>
@@ -123,7 +123,9 @@
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li>`packager::use_bsd2clause_license`</li>
+<li>
+<a href="https://opensource.org/licenses/BSD-2-Clause" class="external-link">BSD_2_clause</a> + file <a href="LICENSE-text.html">LICENSE</a>
+</li>
 </ul>
 </div>
 
