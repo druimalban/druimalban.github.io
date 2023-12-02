@@ -75,9 +75,16 @@
 <p>Refolds like the hylomorphism are not implemented, but it should be possible to implement them using these building blocks.</p>
 </div>
 <div class="section level2">
+<h2 id="tutorial-articles-vignettes-and-package-license">Tutorial articles (vignettes) and package license<a class="anchor" aria-label="anchor" href="#tutorial-articles-vignettes-and-package-license"></a>
+</h2>
+<p><a href="articles/list-morphisms.html">The first package vignette</a> is a tutorial on making use of the various morphisms with the familiar list type. This is primarily a demonstration of each function rather than an explanation of how to implement a “base” functor for a given type.</p>
+<p><a href="articles/tree-morphisms.html">The second package vignette</a> explores implementation of flat-map for the <code>data.tree</code> package’s <code>Node</code> type, implementation of a “base” functor for this type. Because of that package’s unpredictable behaviour, the vignette then explores implementation of a basic <code>Tree</code> type. Finally, it explores implementation of a monad instance for the basic <code>Tree</code> type, and testing it against the monad laws.</p>
+<p><a href="articles/fixed-point-programming.html">The third package vignette</a> explores using fixed-points instead of <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code>, and demonstrates this using Peano numbers. When I was building/testing the library, I used fixed-points instead of the <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code> functions, but I later replaced that code with those functions, and also adapted the “base” functor of a list to demonstrate the package, so this library is to an extent adapted from the Haskell <code>recursion-schemes</code> package. It isn’t clear to me what the implications are in terms of software licensing when adapting code/ideas (other libraries which implement recursion-schemes such as SCALA’s <code>matryoshka</code> don’t share the same license as <code>recursion-schemes</code>), so I’ve applied the same license (BSD 2-Clause) with a note of attribution. My own code is licensed under BSD 3-Clause.</p>
+</div>
+<div class="section level2">
 <h2 id="recursion-schemes">Recursion schemes<a class="anchor" aria-label="anchor" href="#recursion-schemes"></a>
 </h2>
-<p>This package does not explain what the different recursion schemes actually are. The initial explorations of catamorphisms and anamorphisms was largely inspired by the following series of blog-posts: <a href="https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/" class="external-link uri">https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/</a> (Seemann’s book <em>Code that Fits in Your Head</em> also happens to be very good.)</p>
+<p>This package does not explain what the different recursion schemes actually are, because I think others have done it better than me. My initial explorations of catamorphisms and anamorphisms was largely inspired by the following, excellent, series of blog-posts: <a href="https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/" class="external-link uri">https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/</a> (Seemann’s book <em>Code that Fits in Your Head</em> also happens to be very good.)</p>
 <p>Other resources which are fairly accessible include the following:</p>
 <ul>
 <li>
@@ -111,13 +118,6 @@
 <h2 id="the-r-type-system-or-lack-thereof">The R type system (or lack thereof)<a class="anchor" aria-label="anchor" href="#the-r-type-system-or-lack-thereof"></a>
 </h2>
 <p>R is not strongly-typed—it will freely coerce values—but the S3 class system does at least enable writing functions which are specific to a given functor/monad, e.g. the bind implementation for Either only applies to Either values.</p>
-</div>
-<div class="section level2">
-<h2 id="vignettes-and-package-license">Vignettes and package license<a class="anchor" aria-label="anchor" href="#vignettes-and-package-license"></a>
-</h2>
-<p>The first package vignette is a tutorial on making use of the various morphisms with the familiar list type. This is primarily a demonstration of each function rather than an explanation of how to implement a “base” functor for a given type.</p>
-<p>The second package vignette explores implementation of flat-map for the <code>data.tree</code> package’s <code>Node</code> type, implementation of a “base” functor for this type. Because of that package’s unpredictable behaviour, the vignette then explores implementation of a basic <code>Tree</code> type. Finally, it explores implementation of a monad instance for the basic <code>Tree</code> type, and testing it against the monad laws.</p>
-<p>The third package vignette explores using fixed-points instead of <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code>, and demonstrates this using Peano numbers. When I was building/testing the library, I used fixed-points instead of the <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code> functions, but I later replaced that code with those functions, and also adapted the “base” functor of a list to demonstrate the package, so this library is to an extent adapted from the Haskell <code>recursion-schemes</code> package. I’ve thus applied the same license as that package (BSD 2-Clause) with a note of attribution.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
