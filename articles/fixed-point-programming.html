@@ -87,16 +87,17 @@ intuitive, but <code><a href="../reference/project.html">project()</a></code> is
 <code><a href="../reference/embed.html">embed()</a></code> is the equivalent of <code>Fix()</code> as applies
 a layer of recursion.</p>
 <p>I originally followed Mark Seemann’s <a href="https://blog.ploeh.dk/2019/05/13/peano-catamorphism/" class="external-link">blog</a>,
-which in turn uses <code>Fix()</code> as in Bartosz Milewski’s <a href="https://bartoszmilewski.com/2017/02/28/f-algebras/" class="external-link">article on
+which in turn uses <code>Fix</code> as in Bartosz Milewski’s <a href="https://bartoszmilewski.com/2017/02/28/f-algebras/" class="external-link">article on
 F-Algebras</a>. Furthermore, a <a href="https://en.wikibooks.org/wiki/Haskell/Fix_and_recursion" class="external-link">Haskell
-Wikibook section</a> explores <code><a href="https://rdrr.io/r/utils/fix.html" class="external-link">fix()</a></code> and recursion.</p>
+Wikibook section</a> explores Haskell’s <code>fix</code> and
+recursion.</p>
 </div>
 <div class="section level2">
 <h2 id="fixed-points">Fixed points<a class="anchor" aria-label="anchor" href="#fixed-points"></a>
 </h2>
 <p>Cheating a bit—<code>Fix()</code> just wraps another layer of
 recursion, it does not have a recursive type signature like the
-Haskell’s <code><a href="https://rdrr.io/r/utils/fix.html" class="external-link">fix()</a></code>—I defined the <code>Fix()</code> and
+Haskell’s <code>fix</code>—I defined the <code>Fix()</code> and
 <code>unFix()</code> functions as follows.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Fix</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">expr</span><span class="op">)</span> <span class="op">{</span></span>
