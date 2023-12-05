@@ -64,27 +64,26 @@
 <div class="section level2">
 <h2 id="preface">Preface<a class="anchor" aria-label="anchor" href="#preface"></a>
 </h2>
-<p>This is an experiment in porting the Haskell recursion-schemes package to R.</p>
-<p>These are generalised fold and unfolding functions, which can be applied to a large number of data structures.</p>
-<p>This package includes just enough of the Haskell language infrastructure to make it possible to use the following recursion schemes:</p>
+<p>This is an experiment in porting the Haskell <a href="https://hackage.haskell.org/package/recursion-schemes" class="external-link"><code>recursion-schemes</code></a> package to R.</p>
+<p>The library provides generalised folding and unfolding functions, which can be applied to a large number of data structures. The library provides just enough of the Haskell language infrastructure to make it possible to use the following higher-order functions:</p>
 <ul>
 <li>The catamorphism and its categorical dual the anamorphism</li>
 <li>The paramorphism and its categorical dual the apomorphism</li>
 <li>The histomorphism and its categorical dual the futumorphism</li>
 </ul>
-<p>Refolds like the hylomorphism are not implemented, but it should be possible to implement them using these building blocks.</p>
+<p>Refolds like the hylomorphism are not implemented, but using building-blocks and the examples of the code provided, it should be feasible to implement these.</p>
 </div>
 <div class="section level2">
 <h2 id="tutorial-articles-vignettes-and-package-license">Tutorial articles (vignettes) and package license<a class="anchor" aria-label="anchor" href="#tutorial-articles-vignettes-and-package-license"></a>
 </h2>
 <p><a href="articles/list-morphisms.html">The first package vignette</a> is a tutorial on making use of the various morphisms with the familiar list type. This is primarily a demonstration of each function rather than an explanation of how to implement a “base” functor for a given type.</p>
 <p><a href="articles/tree-morphisms.html">The second package vignette</a> explores implementation of flat-map for the <code>data.tree</code> package’s <code>Node</code> type, implementation of a “base” functor for this type. Because of that package’s unpredictable behaviour, the vignette then explores implementation of a basic <code>Tree</code> type. Finally, it explores implementation of a monad instance for the basic <code>Tree</code> type, and testing it against the monad laws.</p>
-<p><a href="articles/fixed-point-programming.html">The third package vignette</a> explores using fixed-points instead of <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code>, and demonstrates this using Peano numbers. When I was building/testing the library, I used fixed-points instead of the <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code> functions, but I later replaced that code with those functions, and also adapted the “base” functor of a list to demonstrate the package, so this library is to an extent adapted from the Haskell <code>recursion-schemes</code> package. It isn’t clear to me what the implications are in terms of software licensing when adapting code/ideas (other libraries which implement recursion-schemes such as SCALA’s <code>matryoshka</code> don’t share the same license as <code>recursion-schemes</code>), so I’ve applied the same license (BSD 2-Clause) with a note of attribution. My own code is licensed under BSD 2-Clause.</p>
+<p><a href="articles/fixed-point-programming.html">The third package vignette</a> explores using fixed-points instead of <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code>, and demonstrates this using Peano numbers. When I was building/testing the library, I used fixed-points instead of the <code><a href="reference/project.html">project()</a></code>/<code><a href="reference/embed.html">embed()</a></code> functions, but I later replaced that code with those functions, and also adapted the “base” functor of a list to demonstrate the package, so this library is to an extent adapted from the Haskell <code>recursion-schemes</code> package. It isn’t clear to me what the implications are in terms of software licensing when adapting code/ideas (other libraries which implement recursion-schemes such as SCALA’s <a href="https://github.com/precog/matryoshka/tree/master" class="external-link"><code>matryoshka</code></a> don’t share the same license as <code>recursion-schemes</code>), so I’ve applied the same license (BSD 2-Clause) with a note of attribution. My own code is licensed under BSD 2-Clause.</p>
 </div>
 <div class="section level2">
 <h2 id="recursion-schemes">Recursion schemes<a class="anchor" aria-label="anchor" href="#recursion-schemes"></a>
 </h2>
-<p>This package does not explain what the different recursion schemes actually are, because I think others have done it better than me. My initial explorations of catamorphisms and anamorphisms was largely inspired by the following, excellent, series of blog-posts: <a href="https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/" class="external-link uri">https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/</a> (Seemann’s book <em>Code that Fits in Your Head</em> also happens to be very good.)</p>
+<p>My initial explorations of catamorphisms and anamorphisms was largely inspired by the following, excellent, series of blog-posts: <a href="https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/" class="external-link uri">https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/</a> (Seemann’s book <em>Code that Fits in Your Head</em> also happens to be very good.)</p>
 <p>Other resources which are fairly accessible include the following:</p>
 <ul>
 <li>
@@ -94,6 +93,7 @@
 <li><a href="https://fho.f12n.de/posts/2014-05-07-dont-fear-the-cat.html" class="external-link uri">https://fho.f12n.de/posts/2014-05-07-dont-fear-the-cat.html</a></li>
 <li><a href="https://arxiv.org/pdf/2202.13633.pdf" class="external-link uri">https://arxiv.org/pdf/2202.13633.pdf</a></li>
 </ul>
+<p>I think that others are better able to explain the theory behind the various recursion schemes in a more accurate and insightful manner than I can, so the function reference tends to be fairly sparse, although every function is documented, and the tutorial vignettes describe usage. Some of the terminology can also be confusing, and Haskell examples provided by others tend to be more succint and clearer than my corresponding implementation in R.</p>
 </div>
 <div class="section level2">
 <h2 id="additional-features-implemented">Additional features implemented<a class="anchor" aria-label="anchor" href="#additional-features-implemented"></a>
@@ -115,9 +115,10 @@
 <p>Note that Haskell has another typeclass, which bears mentioning, Applicative. In fact, all monads are applicative functors. However, some Applicative instances are pretty unintuitive, and there is invariably more than one possible Applicative instance, so I’ve not implemented Applicative for any of the types in this package.</p>
 </div>
 <div class="section level2">
-<h2 id="the-r-type-system-or-lack-thereof">The R type system (or lack thereof)<a class="anchor" aria-label="anchor" href="#the-r-type-system-or-lack-thereof"></a>
+<h2 id="miscellaneous-remarks">Miscellaneous remarks<a class="anchor" aria-label="anchor" href="#miscellaneous-remarks"></a>
 </h2>
-<p>R is not strongly-typed—it will freely coerce values—but the S3 class system does at least enable writing functions which are specific to a given functor/monad, e.g. the bind implementation for Either only applies to Either values.</p>
+<p>Pattern-matching—not supported in base R, and the various libraries do not work like in Haskell—would have made many of my R functions much more succint.</p>
+<p>Type signatures would have been helpful especially when implementing building-blocks like flat-map and free/cofree. Indeed, R is not strongly-typed—it will freely coerce values—but the S3 class system does at least enable writing functions which are specific to a given functor/monad, e.g. the bind implementation for Either only applies to Either values.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
