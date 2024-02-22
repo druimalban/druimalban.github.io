@@ -96,7 +96,7 @@ nodes.</p>
 <h2 id="the-data-tree-node-type">The <code>data.tree</code> <code>Node</code> type<a class="anchor" aria-label="anchor" href="#the-data-tree-node-type"></a>
 </h2>
 <div class="section level3">
-<h3 id="defining-flat-map">Defining flat-map<a class="anchor" aria-label="anchor" href="#defining-flat-map"></a>
+<h3 id="defining-fmap">Defining <code>fmap</code><a class="anchor" aria-label="anchor" href="#defining-fmap"></a>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span> <span class="op">(</span><span class="va"><a href="https://github.com/gluc/data.tree" class="external-link">data.tree</a></span><span class="op">)</span></span>
@@ -109,12 +109,12 @@ nodes.</p>
 <span>    </span>
 <span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span> <span class="op">(</span><span class="va">working</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<p>Let’s start by implementing flat-map for the <code>data.tree</code>
-<code>Node</code> object. Confusingly, referencing a
-<code>data.tree</code> object with a new variable also affects the
-original object. We need to clone the object, which is not very
-efficient, but fine for this example, which always returns a new object
-without affecting the original.</p>
+<p>Let’s start by implementing <code>fmap</code> for the
+<code>data.tree</code> <code>Node</code> object. Confusingly,
+referencing a <code>data.tree</code> object with a new variable also
+affects the original object. We need to clone the object, which is not
+very efficient, but fine for this example, which always returns a new
+object without affecting the original.</p>
 </div>
 <div class="section level3">
 <h3 id="defining-the-base-functor">Defining the “base” functor<a class="anchor" aria-label="anchor" href="#defining-the-base-functor"></a>
@@ -136,9 +136,9 @@ without affecting the original.</p>
 <span><span class="op">}</span></span></code></pre></div>
 <p>The “base” functor of a <code>Node</code> object has a
 label/attribute type called root and a carrier type called forest. The
-flat-map function acts on the carrier type, <em>unless</em> the forest
-is empty (we’ve hit a ‘leaf’) in which case it acts on the attribute
-type.</p>
+<code>fmap</code> function acts on the carrier type, <em>unless</em> the
+forest is empty (we’ve hit a ‘leaf’) in which case it acts on the
+attribute type.</p>
 </div>
 <div class="section level3">
 <h3 id="translating-between-the-functor-and-its-base-functor">Translating between the functor and its “base” functor<a class="anchor" aria-label="anchor" href="#translating-between-the-functor-and-its-base-functor"></a>
@@ -382,8 +382,8 @@ getting mixed, or lost.</p>
 <h3 id="defining-a-custom-tree-type">Defining a custom <code>Tree</code> type<a class="anchor" aria-label="anchor" href="#defining-a-custom-tree-type"></a>
 </h3>
 <p>Since we’re not using an existing type, we need to define functions
-which generate the new S3 type <code>Tree</code>, and a flat-map
-implementation.</p>
+which generate the new S3 type <code>Tree</code>, and a
+<code>fmap</code> implementation.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Tree</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">r</span>, <span class="va">l</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">res</span>         <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span> <span class="op">(</span>type <span class="op">=</span> <span class="st">"Tree"</span>, root<span class="op">=</span><span class="va">r</span>, forest<span class="op">=</span><span class="va">l</span><span class="op">)</span></span>
